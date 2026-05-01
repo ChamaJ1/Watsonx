@@ -1,0 +1,130 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finals Buddy</title>
+    <style>
+        /* CSS styles for the practice question generator */
+        :root {
+            --primary: #4f46e5;
+            --secondary: #6366f1;
+            --accent: #a5b4fc;
+            --light: #f8fafc;
+            --dark: #1e1b4b;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+        }
+        .header {
+            background-color: var(--primary);
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+        .header a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .card {
+            background-color: #fff;
+            padding: 1em;
+            margin: 1em;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card h2 {
+            margin-top: 0;
+        }
+        .card p {
+            margin-bottom: 1em;
+        }
+        .card button {
+            background-color: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 1em 2em;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .card button:hover {
+            background-color: var(--secondary);
+        }
+        .loading {
+            display: none;
+            margin: 1em;
+            padding: 1em;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .loading img {
+            width: 50px;
+            height: 50px;
+            margin: 1em auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Finals Buddy</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Exam Schedule</a></li>
+                <li><a href="#">Grade Calculator</a></li>
+                <li><a href="#">Pomodoro Timer</a></li>
+                <li><a href="#">Study Resources</a></li>
+                <li><a href="#">Practice Questions</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="card">
+            <h2>Practice Question Generator</h2>
+            <p>Enter your notes, concepts, or textbook text to generate practice questions.</p>
+            <form>
+                <textarea id="topics" rows="10" cols="50"></textarea>
+                <br>
+                <label for="questionType">Question Type:</label>
+                <select id="questionType">
+                    <option value="multiple-choice">Multiple Choice</option>
+                    <option value="short-answer">Short Answer</option>
+                    <option value="true-false">True/False</option>
+                    <option value="fill-in-the-blank">Fill-in-the-Blank</option>
+                </select>
+                <br>
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+                <br>
+                <label for="numQuestions">Number of Questions:</label>
+                <input type="number" id="numQuestions" value="5">
+                <br>
+                <button id="generateQuestions">Generate Questions</button>
+            </form>
+            <div class="loading">
+                <img src="loading.gif" alt="Loading...">
+            </div>
+            <div id="questions"></div>
+        </div>
+    </main>
+    <script>
+        const generateQuestionsButton = document.getElementById('generateQuestions');
+        const topicsInput = document.getElementById('topics');
+        const questionTypeSelect = document.getElementById('questionType');
+        const difficultySelect = document.getElementById('difficulty');
+        const numQuestionsInput = document.getElementById('numQuestions');
+        const questionsDiv = document.getElementById('questions');
+        const loadingDiv = document.querySelector('.loading');
+
+        generate
